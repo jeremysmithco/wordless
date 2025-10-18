@@ -1,0 +1,36 @@
+<div class="max-w-2xl mx-auto p-6">
+  <h1 class="text-2xl font-bold mb-6">Audio Recorder</h1>
+
+  <div class="bg-white shadow rounded-lg p-6 mb-6" data-controller="audio-recorder">
+    <div class="space-y-4">
+      <div class="flex gap-4">
+        <button
+          data-audio-recorder-target="recordButton"
+          data-action="click->audio-recorder#startRecording"
+          class="bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-6 rounded"
+        >
+          Start Recording
+        </button>
+
+        <button
+          data-audio-recorder-target="stopButton"
+          data-action="click->audio-recorder#stopRecording"
+          disabled
+          class="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded disabled:opacity-50 disabled:cursor-not-allowed"
+        >
+          Stop Recording
+        </button>
+      </div>
+
+      <div class="min-h-[2rem]">
+        <p data-audio-recorder-target="status" class="text-sm"></p>
+        <p data-audio-recorder-target="duration" class="text-sm text-gray-600"></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-8">
+    <h2 class="text-xl font-semibold mb-4">Your Recordings</h2>
+    <%= link_to "View All Recordings", recordings_path, class: "text-blue-600 hover:underline" %>
+  </div>
+</div>

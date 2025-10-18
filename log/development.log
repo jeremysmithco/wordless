@@ -1,0 +1,1284 @@
+[dotenv] Set [36mSOLID_QUEUE_IN_PUMA[0m
+[dotenv] Loaded [33m.env.development[0m
+[dotenv] Set [36mSOLID_QUEUE_IN_PUMA[0m
+[dotenv] Loaded [33m.env.development[0m
+SolidQueue-1.1.5 Error registering Supervisor (11.1ms)  pid: 57783, hostname: "corin.local", name: "supervisor-8bf20b6a9eeb62bc722c", error: "ActiveRecord::StatementInvalid Could not find table 'solid_queue_processes'"
+SolidQueue-1.1.5 Started Supervisor (16.7ms)  pid: 57783, hostname: "corin.local", process_id: nil, name: "supervisor-8bf20b6a9eeb62bc722c"
+SolidQueue-1.1.5 Error registering Supervisor (17.8ms)  pid: 57845, hostname: "corin.local", name: "supervisor-085ef787e0b5baa6fd87", error: "ActiveRecord::StatementInvalid Could not find table 'solid_queue_processes'"
+SolidQueue-1.1.5 Started Supervisor (23.5ms)  pid: 57845, hostname: "corin.local", process_id: nil, name: "supervisor-085ef787e0b5baa6fd87"
+[dotenv] Set [36mSOLID_QUEUE_IN_PUMA[0m
+[dotenv] Loaded [33m.env.development[0m
+[dotenv] Set [36mSOLID_QUEUE_IN_PUMA[0m
+[dotenv] Loaded [33m.env.development[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" /*application='Volatile'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "movie_nights" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "movie_nights" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "watched_on" date, "completed_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "movies" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "movies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_night_id" integer NOT NULL, "title" varchar, "mpaa_rating" varchar, "runtime_minutes" integer, "description" text, "release_year" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_movies_on_movie_night_id" ON "movies" ("movie_night_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "recommendations" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "recommendations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_night_id" integer NOT NULL, "source" varchar, "list" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_recommendations_on_movie_night_id" ON "recommendations" ("movie_night_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "recordings" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "recordings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "duration" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_blocked_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" varchar NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_release" ON "solid_queue_blocked_executions" ("concurrency_key", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_maintenance" ON "solid_queue_blocked_executions" ("expires_at", "concurrency_key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_blocked_executions_on_job_id" ON "solid_queue_blocked_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_claimed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "process_id" bigint, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_claimed_executions_on_job_id" ON "solid_queue_claimed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_claimed_executions_on_process_id_and_job_id" ON "solid_queue_claimed_executions" ("process_id", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_failed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "error" text, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_failed_executions_on_job_id" ON "solid_queue_failed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_job_batches" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_job_batches" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "parent_job_batch_id" integer, "on_finish_active_job" text, "on_success_active_job" text, "on_failure_active_job" text, "finished_at" datetime(6), "changed_at" datetime(6), "last_changed_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_changed_at" ON "solid_queue_job_batches" ("changed_at") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_finished_at" ON "solid_queue_job_batches" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_last_changed_at" ON "solid_queue_job_batches" ("last_changed_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_parent_job_batch_id" ON "solid_queue_job_batches" ("parent_job_batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "class_name" varchar NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" varchar, "scheduled_at" datetime(6), "finished_at" datetime(6), "concurrency_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "batch_id" integer) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_active_job_id" ON "solid_queue_jobs" ("active_job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_batch_id" ON "solid_queue_jobs" ("batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_class_name" ON "solid_queue_jobs" ("class_name") /*application='Volatile'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_finished_at" ON "solid_queue_jobs" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_filtering" ON "solid_queue_jobs" ("queue_name", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_alerting" ON "solid_queue_jobs" ("scheduled_at", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_pauses" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_pauses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_pauses_on_queue_name" ON "solid_queue_pauses" ("queue_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_processes" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_processes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "kind" varchar NOT NULL, "last_heartbeat_at" datetime(6) NOT NULL, "supervisor_id" bigint, "pid" integer NOT NULL, "hostname" varchar, "metadata" text, "created_at" datetime(6) NOT NULL, "name" varchar NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_processes_on_last_heartbeat_at" ON "solid_queue_processes" ("last_heartbeat_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_processes_on_name_and_supervisor_id" ON "solid_queue_processes" ("name", "supervisor_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_processes_on_supervisor_id" ON "solid_queue_processes" ("supervisor_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_ready_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_ready_executions_on_job_id" ON "solid_queue_ready_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_all" ON "solid_queue_ready_executions" ("priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_by_queue" ON "solid_queue_ready_executions" ("queue_name", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_recurring_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "task_key" varchar NOT NULL, "run_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_job_id" ON "solid_queue_recurring_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_task_key_and_run_at" ON "solid_queue_recurring_executions" ("task_key", "run_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_recurring_tasks" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_recurring_tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "schedule" varchar NOT NULL, "command" varchar(2048), "class_name" varchar, "arguments" text, "queue_name" varchar, "priority" integer DEFAULT 0, "static" boolean DEFAULT 1 NOT NULL, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_tasks_on_key" ON "solid_queue_recurring_tasks" ("key") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_recurring_tasks_on_static" ON "solid_queue_recurring_tasks" ("static") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_scheduled_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "scheduled_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_scheduled_executions_on_job_id" ON "solid_queue_scheduled_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_dispatch_all" ON "solid_queue_scheduled_executions" ("scheduled_at", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_semaphores" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_semaphores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "value" integer DEFAULT 1 NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_semaphores_on_expires_at" ON "solid_queue_semaphores" ("expires_at") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_semaphores_on_key_and_value" ON "solid_queue_semaphores" ("key", "value") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_semaphores_on_key" ON "solid_queue_semaphores" ("key") /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "active_storage_attachments" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_variant_records_uniqueness" ON "aactive_storage_variant_records" ("blob_id", "variation_digest") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aactive_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "active_storage_variant_records" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "aactive_storage_variant_records" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "amovies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_night_id" integer NOT NULL, "title" varchar, "mpaa_rating" varchar, "runtime_minutes" integer, "description" text, "release_year" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_amovies_on_movie_night_id" ON "amovies" ("movie_night_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "amovies" ("id","movie_night_id","title","mpaa_rating","runtime_minutes","description","release_year","created_at","updated_at")
+                     SELECT "id","movie_night_id","title","mpaa_rating","runtime_minutes","description","release_year","created_at","updated_at" FROM "movies" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "movies" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "movies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_night_id" integer NOT NULL, "title" varchar, "mpaa_rating" varchar, "runtime_minutes" integer, "description" text, "release_year" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2d02642ae8"
+FOREIGN KEY ("movie_night_id")
+  REFERENCES "movie_nights" ("id")
+) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_movies_on_movie_night_id" ON "movies" ("movie_night_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("id","movie_night_id","title","mpaa_rating","runtime_minutes","description","release_year","created_at","updated_at")
+                     SELECT "id","movie_night_id","title","mpaa_rating","runtime_minutes","description","release_year","created_at","updated_at" FROM "amovies" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "amovies" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "arecommendations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_night_id" integer NOT NULL, "source" varchar, "list" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_arecommendations_on_movie_night_id" ON "arecommendations" ("movie_night_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "arecommendations" ("id","movie_night_id","source","list","created_at","updated_at")
+                     SELECT "id","movie_night_id","source","list","created_at","updated_at" FROM "recommendations" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "recommendations" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "recommendations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_night_id" integer NOT NULL, "source" varchar, "list" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_df15ac467d"
+FOREIGN KEY ("movie_night_id")
+  REFERENCES "movie_nights" ("id")
+) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_recommendations_on_movie_night_id" ON "recommendations" ("movie_night_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "recommendations" ("id","movie_night_id","source","list","created_at","updated_at")
+                     SELECT "id","movie_night_id","source","list","created_at","updated_at" FROM "arecommendations" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "arecommendations" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_blocked_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" varchar NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_blocked_executions_on_job_id" ON "asolid_queue_blocked_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_blocked_executions_for_maintenance" ON "asolid_queue_blocked_executions" ("expires_at", "concurrency_key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_blocked_executions_for_release" ON "asolid_queue_blocked_executions" ("concurrency_key", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_blocked_executions" ("id","job_id","queue_name","priority","concurrency_key","expires_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","concurrency_key","expires_at","created_at" FROM "solid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "solid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_blocked_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" varchar NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4cd34e2228"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_release" ON "solid_queue_blocked_executions" ("concurrency_key", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_maintenance" ON "solid_queue_blocked_executions" ("expires_at", "concurrency_key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_blocked_executions_on_job_id" ON "solid_queue_blocked_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_blocked_executions" ("id","job_id","queue_name","priority","concurrency_key","expires_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","concurrency_key","expires_at","created_at" FROM "asolid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_claimed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "process_id" bigint, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_claimed_executions_on_process_id_and_job_id" ON "asolid_queue_claimed_executions" ("process_id", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_claimed_executions_on_job_id" ON "asolid_queue_claimed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_claimed_executions" ("id","job_id","process_id","created_at")
+                     SELECT "id","job_id","process_id","created_at" FROM "solid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_claimed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "process_id" bigint, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9cfe4d4944"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_claimed_executions_on_job_id" ON "solid_queue_claimed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_claimed_executions_on_process_id_and_job_id" ON "solid_queue_claimed_executions" ("process_id", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_claimed_executions" ("id","job_id","process_id","created_at")
+                     SELECT "id","job_id","process_id","created_at" FROM "asolid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_failed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "error" text, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_failed_executions_on_job_id" ON "asolid_queue_failed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_failed_executions" ("id","job_id","error","created_at")
+                     SELECT "id","job_id","error","created_at" FROM "solid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_failed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "error" text, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_39bbc7a631"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_failed_executions_on_job_id" ON "solid_queue_failed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_failed_executions" ("id","job_id","error","created_at")
+                     SELECT "id","job_id","error","created_at" FROM "asolid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "class_name" varchar NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" varchar, "scheduled_at" datetime(6), "finished_at" datetime(6), "concurrency_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "batch_id" integer) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_for_alerting" ON "asolid_queue_jobs" ("scheduled_at", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_for_filtering" ON "asolid_queue_jobs" ("queue_name", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_finished_at" ON "asolid_queue_jobs" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_class_name" ON "asolid_queue_jobs" ("class_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_batch_id" ON "asolid_queue_jobs" ("batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_active_job_id" ON "asolid_queue_jobs" ("active_job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_jobs" ("id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id")
+                     SELECT "id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id" FROM "solid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "solid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "class_name" varchar NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" varchar, "scheduled_at" datetime(6), "finished_at" datetime(6), "concurrency_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "batch_id" integer, CONSTRAINT "fk_rails_f1cb6e458f"
+FOREIGN KEY ("batch_id")
+  REFERENCES "solid_queue_job_batches" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_active_job_id" ON "solid_queue_jobs" ("active_job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_batch_id" ON "solid_queue_jobs" ("batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_class_name" ON "solid_queue_jobs" ("class_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_finished_at" ON "solid_queue_jobs" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_filtering" ON "solid_queue_jobs" ("queue_name", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_alerting" ON "solid_queue_jobs" ("scheduled_at", "finished_at") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_jobs" ("id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id")
+                     SELECT "id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id" FROM "asolid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_ready_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_solid_queue_poll_by_queue" ON "asolid_queue_ready_executions" ("queue_name", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_solid_queue_poll_all" ON "asolid_queue_ready_executions" ("priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_ready_executions_on_job_id" ON "asolid_queue_ready_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_ready_executions" ("id","job_id","queue_name","priority","created_at")
+                     SELECT "id","job_id","queue_name","priority","created_at" FROM "solid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_ready_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_81fcbd66af"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_ready_executions_on_job_id" ON "solid_queue_ready_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_all" ON "solid_queue_ready_executions" ("priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_by_queue" ON "solid_queue_ready_executions" ("queue_name", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_ready_executions" ("id","job_id","queue_name","priority","created_at")
+                     SELECT "id","job_id","queue_name","priority","created_at" FROM "asolid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_recurring_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "task_key" varchar NOT NULL, "run_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_recurring_executions_on_task_key_and_run_at" ON "asolid_queue_recurring_executions" ("task_key", "run_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_recurring_executions_on_job_id" ON "asolid_queue_recurring_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_recurring_executions" ("id","job_id","task_key","run_at","created_at")
+                     SELECT "id","job_id","task_key","run_at","created_at" FROM "solid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_recurring_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "task_key" varchar NOT NULL, "run_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_318a5533ed"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_job_id" ON "solid_queue_recurring_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_task_key_and_run_at" ON "solid_queue_recurring_executions" ("task_key", "run_at") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_recurring_executions" ("id","job_id","task_key","run_at","created_at")
+                     SELECT "id","job_id","task_key","run_at","created_at" FROM "asolid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_scheduled_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "scheduled_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_solid_queue_dispatch_all" ON "asolid_queue_scheduled_executions" ("scheduled_at", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_scheduled_executions_on_job_id" ON "asolid_queue_scheduled_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_scheduled_executions" ("id","job_id","queue_name","priority","scheduled_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","scheduled_at","created_at" FROM "solid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_scheduled_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "scheduled_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c4316f352d"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_scheduled_executions_on_job_id" ON "solid_queue_scheduled_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_dispatch_all" ON "solid_queue_scheduled_executions" ("scheduled_at", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_scheduled_executions" ("id","job_id","queue_name","priority","scheduled_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","scheduled_at","created_at" FROM "asolid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20251016185144) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20251016185034); /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-10-18 15:44:10.812947', '2025-10-18 15:44:10.812948') RETURNING "key" /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '9cc4e180829e921106e51d79d8970507cb6a3de1', '2025-10-18 15:44:10.813947', '2025-10-18 15:44:10.813948') RETURNING "key" /*application='Volatile'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE TABLE "solid_queue_blocked_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" varchar NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_release" ON "solid_queue_blocked_executions" ("concurrency_key", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_maintenance" ON "solid_queue_blocked_executions" ("expires_at", "concurrency_key") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_blocked_executions_on_job_id" ON "solid_queue_blocked_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_claimed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "process_id" bigint, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_claimed_executions_on_job_id" ON "solid_queue_claimed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_claimed_executions_on_process_id_and_job_id" ON "solid_queue_claimed_executions" ("process_id", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_failed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "error" text, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_failed_executions_on_job_id" ON "solid_queue_failed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_job_batches" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_job_batches" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "parent_job_batch_id" integer, "on_finish_active_job" text, "on_success_active_job" text, "on_failure_active_job" text, "metadata" text, "finished_at" datetime(6), "changed_at" datetime(6), "last_changed_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_changed_at" ON "solid_queue_job_batches" ("changed_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_finished_at" ON "solid_queue_job_batches" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_last_changed_at" ON "solid_queue_job_batches" ("last_changed_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_parent_job_batch_id" ON "solid_queue_job_batches" ("parent_job_batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "class_name" varchar NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" varchar, "scheduled_at" datetime(6), "finished_at" datetime(6), "concurrency_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "batch_id" integer) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_active_job_id" ON "solid_queue_jobs" ("active_job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_batch_id" ON "solid_queue_jobs" ("batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_class_name" ON "solid_queue_jobs" ("class_name") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_finished_at" ON "solid_queue_jobs" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_filtering" ON "solid_queue_jobs" ("queue_name", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_alerting" ON "solid_queue_jobs" ("scheduled_at", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_pauses" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_pauses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_pauses_on_queue_name" ON "solid_queue_pauses" ("queue_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_processes" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_processes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "kind" varchar NOT NULL, "last_heartbeat_at" datetime(6) NOT NULL, "supervisor_id" bigint, "pid" integer NOT NULL, "hostname" varchar, "metadata" text, "created_at" datetime(6) NOT NULL, "name" varchar NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_processes_on_last_heartbeat_at" ON "solid_queue_processes" ("last_heartbeat_at") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_processes_on_name_and_supervisor_id" ON "solid_queue_processes" ("name", "supervisor_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_processes_on_supervisor_id" ON "solid_queue_processes" ("supervisor_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_ready_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_ready_executions_on_job_id" ON "solid_queue_ready_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_all" ON "solid_queue_ready_executions" ("priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_by_queue" ON "solid_queue_ready_executions" ("queue_name", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_recurring_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "task_key" varchar NOT NULL, "run_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_job_id" ON "solid_queue_recurring_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_task_key_and_run_at" ON "solid_queue_recurring_executions" ("task_key", "run_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_recurring_tasks" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_recurring_tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "schedule" varchar NOT NULL, "command" varchar(2048), "class_name" varchar, "arguments" text, "queue_name" varchar, "priority" integer DEFAULT 0, "static" boolean DEFAULT 1 NOT NULL, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_tasks_on_key" ON "solid_queue_recurring_tasks" ("key") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_recurring_tasks_on_static" ON "solid_queue_recurring_tasks" ("static") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_scheduled_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "scheduled_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_scheduled_executions_on_job_id" ON "solid_queue_scheduled_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_dispatch_all" ON "solid_queue_scheduled_executions" ("scheduled_at", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_semaphores" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_semaphores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "value" integer DEFAULT 1 NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_semaphores_on_expires_at" ON "solid_queue_semaphores" ("expires_at") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_semaphores_on_key_and_value" ON "solid_queue_semaphores" ("key", "value") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_semaphores_on_key" ON "solid_queue_semaphores" ("key") /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_blocked_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" varchar NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_blocked_executions_on_job_id" ON "asolid_queue_blocked_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_blocked_executions_for_maintenance" ON "asolid_queue_blocked_executions" ("expires_at", "concurrency_key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_blocked_executions_for_release" ON "asolid_queue_blocked_executions" ("concurrency_key", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_blocked_executions" ("id","job_id","queue_name","priority","concurrency_key","expires_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","concurrency_key","expires_at","created_at" FROM "solid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "solid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_blocked_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" varchar NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4cd34e2228"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_release" ON "solid_queue_blocked_executions" ("concurrency_key", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_maintenance" ON "solid_queue_blocked_executions" ("expires_at", "concurrency_key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_blocked_executions_on_job_id" ON "solid_queue_blocked_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_blocked_executions" ("id","job_id","queue_name","priority","concurrency_key","expires_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","concurrency_key","expires_at","created_at" FROM "asolid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_claimed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "process_id" bigint, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_claimed_executions_on_process_id_and_job_id" ON "asolid_queue_claimed_executions" ("process_id", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_claimed_executions_on_job_id" ON "asolid_queue_claimed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_claimed_executions" ("id","job_id","process_id","created_at")
+                     SELECT "id","job_id","process_id","created_at" FROM "solid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_claimed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "process_id" bigint, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9cfe4d4944"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_claimed_executions_on_job_id" ON "solid_queue_claimed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_claimed_executions_on_process_id_and_job_id" ON "solid_queue_claimed_executions" ("process_id", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_claimed_executions" ("id","job_id","process_id","created_at")
+                     SELECT "id","job_id","process_id","created_at" FROM "asolid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_failed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "error" text, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_failed_executions_on_job_id" ON "asolid_queue_failed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_failed_executions" ("id","job_id","error","created_at")
+                     SELECT "id","job_id","error","created_at" FROM "solid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_failed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "error" text, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_39bbc7a631"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_failed_executions_on_job_id" ON "solid_queue_failed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_failed_executions" ("id","job_id","error","created_at")
+                     SELECT "id","job_id","error","created_at" FROM "asolid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "class_name" varchar NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" varchar, "scheduled_at" datetime(6), "finished_at" datetime(6), "concurrency_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "batch_id" integer) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_for_alerting" ON "asolid_queue_jobs" ("scheduled_at", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_for_filtering" ON "asolid_queue_jobs" ("queue_name", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_finished_at" ON "asolid_queue_jobs" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_class_name" ON "asolid_queue_jobs" ("class_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_batch_id" ON "asolid_queue_jobs" ("batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_active_job_id" ON "asolid_queue_jobs" ("active_job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_jobs" ("id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id")
+                     SELECT "id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id" FROM "solid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "solid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "class_name" varchar NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" varchar, "scheduled_at" datetime(6), "finished_at" datetime(6), "concurrency_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "batch_id" integer, CONSTRAINT "fk_rails_f1cb6e458f"
+FOREIGN KEY ("batch_id")
+  REFERENCES "solid_queue_job_batches" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_active_job_id" ON "solid_queue_jobs" ("active_job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_batch_id" ON "solid_queue_jobs" ("batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_class_name" ON "solid_queue_jobs" ("class_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_finished_at" ON "solid_queue_jobs" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_filtering" ON "solid_queue_jobs" ("queue_name", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_alerting" ON "solid_queue_jobs" ("scheduled_at", "finished_at") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_jobs" ("id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id")
+                     SELECT "id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id" FROM "asolid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "asolid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_ready_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_solid_queue_poll_by_queue" ON "asolid_queue_ready_executions" ("queue_name", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_solid_queue_poll_all" ON "asolid_queue_ready_executions" ("priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_ready_executions_on_job_id" ON "asolid_queue_ready_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_ready_executions" ("id","job_id","queue_name","priority","created_at")
+                     SELECT "id","job_id","queue_name","priority","created_at" FROM "solid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_ready_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_81fcbd66af"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_ready_executions_on_job_id" ON "solid_queue_ready_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_all" ON "solid_queue_ready_executions" ("priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_by_queue" ON "solid_queue_ready_executions" ("queue_name", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_ready_executions" ("id","job_id","queue_name","priority","created_at")
+                     SELECT "id","job_id","queue_name","priority","created_at" FROM "asolid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_recurring_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "task_key" varchar NOT NULL, "run_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_recurring_executions_on_task_key_and_run_at" ON "asolid_queue_recurring_executions" ("task_key", "run_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_recurring_executions_on_job_id" ON "asolid_queue_recurring_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_recurring_executions" ("id","job_id","task_key","run_at","created_at")
+                     SELECT "id","job_id","task_key","run_at","created_at" FROM "solid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_recurring_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "task_key" varchar NOT NULL, "run_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_318a5533ed"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_job_id" ON "solid_queue_recurring_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_task_key_and_run_at" ON "solid_queue_recurring_executions" ("task_key", "run_at") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_recurring_executions" ("id","job_id","task_key","run_at","created_at")
+                     SELECT "id","job_id","task_key","run_at","created_at" FROM "asolid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_scheduled_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "scheduled_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_solid_queue_dispatch_all" ON "asolid_queue_scheduled_executions" ("scheduled_at", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_scheduled_executions_on_job_id" ON "asolid_queue_scheduled_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_scheduled_executions" ("id","job_id","queue_name","priority","scheduled_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","scheduled_at","created_at" FROM "solid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_scheduled_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "scheduled_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c4316f352d"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_scheduled_executions_on_job_id" ON "solid_queue_scheduled_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_dispatch_all" ON "solid_queue_scheduled_executions" ("scheduled_at", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_scheduled_executions" ("id","job_id","queue_name","priority","scheduled_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","scheduled_at","created_at" FROM "asolid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240131013203) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-10-18 15:44:10.920931', '2025-10-18 15:44:10.920933') RETURNING "key" /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'e6e297ae82dabb1d0a30ebadc43fcf1a1151541e', '2025-10-18 15:44:10.921913', '2025-10-18 15:44:10.921914') RETURNING "key" /*application='Volatile'*/[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_attachments" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_blobs" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "filename" varchar NOT NULL, "content_type" varchar, "metadata" text, "service_name" varchar NOT NULL, "byte_size" bigint NOT NULL, "checksum" varchar, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "active_storage_variant_records" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "movie_nights" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "movie_nights" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "watched_on" date, "completed_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "movies" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "movies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_night_id" integer NOT NULL, "title" varchar, "mpaa_rating" varchar, "runtime_minutes" integer, "description" text, "release_year" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_movies_on_movie_night_id" ON "movies" ("movie_night_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "posts" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "posts" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "recommendations" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "recommendations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_night_id" integer NOT NULL, "source" varchar, "list" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_recommendations_on_movie_night_id" ON "recommendations" ("movie_night_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "recordings" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "recordings" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "duration" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_blocked_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" varchar NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_release" ON "solid_queue_blocked_executions" ("concurrency_key", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_maintenance" ON "solid_queue_blocked_executions" ("expires_at", "concurrency_key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_blocked_executions_on_job_id" ON "solid_queue_blocked_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_claimed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "process_id" bigint, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_claimed_executions_on_job_id" ON "solid_queue_claimed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_claimed_executions_on_process_id_and_job_id" ON "solid_queue_claimed_executions" ("process_id", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_failed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "error" text, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_failed_executions_on_job_id" ON "solid_queue_failed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_job_batches" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_job_batches" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "parent_job_batch_id" integer, "on_finish_active_job" text, "on_success_active_job" text, "on_failure_active_job" text, "finished_at" datetime(6), "changed_at" datetime(6), "last_changed_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_changed_at" ON "solid_queue_job_batches" ("changed_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_finished_at" ON "solid_queue_job_batches" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_last_changed_at" ON "solid_queue_job_batches" ("last_changed_at") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_parent_job_batch_id" ON "solid_queue_job_batches" ("parent_job_batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "class_name" varchar NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" varchar, "scheduled_at" datetime(6), "finished_at" datetime(6), "concurrency_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "batch_id" integer) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_active_job_id" ON "solid_queue_jobs" ("active_job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_batch_id" ON "solid_queue_jobs" ("batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_class_name" ON "solid_queue_jobs" ("class_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_finished_at" ON "solid_queue_jobs" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_filtering" ON "solid_queue_jobs" ("queue_name", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_alerting" ON "solid_queue_jobs" ("scheduled_at", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_pauses" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_pauses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_pauses_on_queue_name" ON "solid_queue_pauses" ("queue_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_processes" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_processes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "kind" varchar NOT NULL, "last_heartbeat_at" datetime(6) NOT NULL, "supervisor_id" bigint, "pid" integer NOT NULL, "hostname" varchar, "metadata" text, "created_at" datetime(6) NOT NULL, "name" varchar NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_processes_on_last_heartbeat_at" ON "solid_queue_processes" ("last_heartbeat_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_processes_on_name_and_supervisor_id" ON "solid_queue_processes" ("name", "supervisor_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_processes_on_supervisor_id" ON "solid_queue_processes" ("supervisor_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_ready_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_ready_executions_on_job_id" ON "solid_queue_ready_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_all" ON "solid_queue_ready_executions" ("priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_by_queue" ON "solid_queue_ready_executions" ("queue_name", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_recurring_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "task_key" varchar NOT NULL, "run_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_job_id" ON "solid_queue_recurring_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_task_key_and_run_at" ON "solid_queue_recurring_executions" ("task_key", "run_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_recurring_tasks" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_recurring_tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "schedule" varchar NOT NULL, "command" varchar(2048), "class_name" varchar, "arguments" text, "queue_name" varchar, "priority" integer DEFAULT 0, "static" boolean DEFAULT 1 NOT NULL, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_tasks_on_key" ON "solid_queue_recurring_tasks" ("key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_recurring_tasks_on_static" ON "solid_queue_recurring_tasks" ("static") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_scheduled_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "scheduled_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_scheduled_executions_on_job_id" ON "solid_queue_scheduled_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_dispatch_all" ON "solid_queue_scheduled_executions" ("scheduled_at", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_semaphores" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_semaphores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "value" integer DEFAULT 1 NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_semaphores_on_expires_at" ON "solid_queue_semaphores" ("expires_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_semaphores_on_key_and_value" ON "solid_queue_semaphores" ("key", "value") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_semaphores_on_key" ON "solid_queue_semaphores" ("key") /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_attachments_uniqueness" ON "aactive_storage_attachments" ("record_type", "record_id", "name", "blob_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_aactive_storage_attachments_on_blob_id" ON "aactive_storage_attachments" ("blob_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aactive_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "active_storage_attachments" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "active_storage_attachments" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar NOT NULL, "record_type" varchar NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("id","name","record_type","record_id","blob_id","created_at")
+                     SELECT "id","name","record_type","record_id","blob_id","created_at" FROM "aactive_storage_attachments" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "aactive_storage_attachments" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "aactive_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_aactive_storage_variant_records_uniqueness" ON "aactive_storage_variant_records" ("blob_id", "variation_digest") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "aactive_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "active_storage_variant_records" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "blob_id" bigint NOT NULL, "variation_digest" varchar NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "active_storage_variant_records" ("id","blob_id","variation_digest")
+                     SELECT "id","blob_id","variation_digest" FROM "aactive_storage_variant_records" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "aactive_storage_variant_records" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "amovies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_night_id" integer NOT NULL, "title" varchar, "mpaa_rating" varchar, "runtime_minutes" integer, "description" text, "release_year" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_amovies_on_movie_night_id" ON "amovies" ("movie_night_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "amovies" ("id","movie_night_id","title","mpaa_rating","runtime_minutes","description","release_year","created_at","updated_at")
+                     SELECT "id","movie_night_id","title","mpaa_rating","runtime_minutes","description","release_year","created_at","updated_at" FROM "movies" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "movies" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "movies" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_night_id" integer NOT NULL, "title" varchar, "mpaa_rating" varchar, "runtime_minutes" integer, "description" text, "release_year" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_2d02642ae8"
+FOREIGN KEY ("movie_night_id")
+  REFERENCES "movie_nights" ("id")
+) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_movies_on_movie_night_id" ON "movies" ("movie_night_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "movies" ("id","movie_night_id","title","mpaa_rating","runtime_minutes","description","release_year","created_at","updated_at")
+                     SELECT "id","movie_night_id","title","mpaa_rating","runtime_minutes","description","release_year","created_at","updated_at" FROM "amovies" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "amovies" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "arecommendations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_night_id" integer NOT NULL, "source" varchar, "list" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_arecommendations_on_movie_night_id" ON "arecommendations" ("movie_night_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "arecommendations" ("id","movie_night_id","source","list","created_at","updated_at")
+                     SELECT "id","movie_night_id","source","list","created_at","updated_at" FROM "recommendations" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "recommendations" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "recommendations" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "movie_night_id" integer NOT NULL, "source" varchar, "list" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_df15ac467d"
+FOREIGN KEY ("movie_night_id")
+  REFERENCES "movie_nights" ("id")
+) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_recommendations_on_movie_night_id" ON "recommendations" ("movie_night_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "recommendations" ("id","movie_night_id","source","list","created_at","updated_at")
+                     SELECT "id","movie_night_id","source","list","created_at","updated_at" FROM "arecommendations" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "arecommendations" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_blocked_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" varchar NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_blocked_executions_on_job_id" ON "asolid_queue_blocked_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_blocked_executions_for_maintenance" ON "asolid_queue_blocked_executions" ("expires_at", "concurrency_key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_blocked_executions_for_release" ON "asolid_queue_blocked_executions" ("concurrency_key", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_blocked_executions" ("id","job_id","queue_name","priority","concurrency_key","expires_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","concurrency_key","expires_at","created_at" FROM "solid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_blocked_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" varchar NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4cd34e2228"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_release" ON "solid_queue_blocked_executions" ("concurrency_key", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_maintenance" ON "solid_queue_blocked_executions" ("expires_at", "concurrency_key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_blocked_executions_on_job_id" ON "solid_queue_blocked_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_blocked_executions" ("id","job_id","queue_name","priority","concurrency_key","expires_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","concurrency_key","expires_at","created_at" FROM "asolid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_claimed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "process_id" bigint, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_claimed_executions_on_process_id_and_job_id" ON "asolid_queue_claimed_executions" ("process_id", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_claimed_executions_on_job_id" ON "asolid_queue_claimed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_claimed_executions" ("id","job_id","process_id","created_at")
+                     SELECT "id","job_id","process_id","created_at" FROM "solid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "solid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_claimed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "process_id" bigint, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9cfe4d4944"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_claimed_executions_on_job_id" ON "solid_queue_claimed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_claimed_executions_on_process_id_and_job_id" ON "solid_queue_claimed_executions" ("process_id", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_claimed_executions" ("id","job_id","process_id","created_at")
+                     SELECT "id","job_id","process_id","created_at" FROM "asolid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_failed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "error" text, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_failed_executions_on_job_id" ON "asolid_queue_failed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_failed_executions" ("id","job_id","error","created_at")
+                     SELECT "id","job_id","error","created_at" FROM "solid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_failed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "error" text, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_39bbc7a631"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_failed_executions_on_job_id" ON "solid_queue_failed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_failed_executions" ("id","job_id","error","created_at")
+                     SELECT "id","job_id","error","created_at" FROM "asolid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "class_name" varchar NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" varchar, "scheduled_at" datetime(6), "finished_at" datetime(6), "concurrency_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "batch_id" integer) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_for_alerting" ON "asolid_queue_jobs" ("scheduled_at", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_for_filtering" ON "asolid_queue_jobs" ("queue_name", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_finished_at" ON "asolid_queue_jobs" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_class_name" ON "asolid_queue_jobs" ("class_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_batch_id" ON "asolid_queue_jobs" ("batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_active_job_id" ON "asolid_queue_jobs" ("active_job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_jobs" ("id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id")
+                     SELECT "id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id" FROM "solid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "solid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "class_name" varchar NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" varchar, "scheduled_at" datetime(6), "finished_at" datetime(6), "concurrency_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "batch_id" integer, CONSTRAINT "fk_rails_f1cb6e458f"
+FOREIGN KEY ("batch_id")
+  REFERENCES "solid_queue_job_batches" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_active_job_id" ON "solid_queue_jobs" ("active_job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_batch_id" ON "solid_queue_jobs" ("batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_class_name" ON "solid_queue_jobs" ("class_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_finished_at" ON "solid_queue_jobs" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_filtering" ON "solid_queue_jobs" ("queue_name", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_alerting" ON "solid_queue_jobs" ("scheduled_at", "finished_at") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_jobs" ("id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id")
+                     SELECT "id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id" FROM "asolid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_ready_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_solid_queue_poll_by_queue" ON "asolid_queue_ready_executions" ("queue_name", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_solid_queue_poll_all" ON "asolid_queue_ready_executions" ("priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_ready_executions_on_job_id" ON "asolid_queue_ready_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_ready_executions" ("id","job_id","queue_name","priority","created_at")
+                     SELECT "id","job_id","queue_name","priority","created_at" FROM "solid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_ready_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_81fcbd66af"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_ready_executions_on_job_id" ON "solid_queue_ready_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_all" ON "solid_queue_ready_executions" ("priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_by_queue" ON "solid_queue_ready_executions" ("queue_name", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_ready_executions" ("id","job_id","queue_name","priority","created_at")
+                     SELECT "id","job_id","queue_name","priority","created_at" FROM "asolid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_recurring_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "task_key" varchar NOT NULL, "run_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_recurring_executions_on_task_key_and_run_at" ON "asolid_queue_recurring_executions" ("task_key", "run_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_recurring_executions_on_job_id" ON "asolid_queue_recurring_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_recurring_executions" ("id","job_id","task_key","run_at","created_at")
+                     SELECT "id","job_id","task_key","run_at","created_at" FROM "solid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_recurring_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "task_key" varchar NOT NULL, "run_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_318a5533ed"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_job_id" ON "solid_queue_recurring_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_task_key_and_run_at" ON "solid_queue_recurring_executions" ("task_key", "run_at") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_recurring_executions" ("id","job_id","task_key","run_at","created_at")
+                     SELECT "id","job_id","task_key","run_at","created_at" FROM "asolid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_scheduled_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "scheduled_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_solid_queue_dispatch_all" ON "asolid_queue_scheduled_executions" ("scheduled_at", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_scheduled_executions_on_job_id" ON "asolid_queue_scheduled_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_scheduled_executions" ("id","job_id","queue_name","priority","scheduled_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","scheduled_at","created_at" FROM "solid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_scheduled_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "scheduled_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c4316f352d"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_scheduled_executions_on_job_id" ON "solid_queue_scheduled_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_dispatch_all" ON "solid_queue_scheduled_executions" ("scheduled_at", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_scheduled_executions" ("id","job_id","queue_name","priority","scheduled_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","scheduled_at","created_at" FROM "asolid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20251016185144) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20251016185034); /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-10-18 15:44:11.048611', '2025-10-18 15:44:11.048612') RETURNING "key" /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2025-10-18 15:44:11.049263' WHERE "ar_internal_metadata"."key" = 'environment' /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', '9cc4e180829e921106e51d79d8970507cb6a3de1', '2025-10-18 15:44:11.049807', '2025-10-18 15:44:11.049807') RETURNING "key" /*application='Volatile'*/[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_blocked_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" varchar NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_release" ON "solid_queue_blocked_executions" ("concurrency_key", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_maintenance" ON "solid_queue_blocked_executions" ("expires_at", "concurrency_key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_blocked_executions_on_job_id" ON "solid_queue_blocked_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_claimed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "process_id" bigint, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_claimed_executions_on_job_id" ON "solid_queue_claimed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_claimed_executions_on_process_id_and_job_id" ON "solid_queue_claimed_executions" ("process_id", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_failed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "error" text, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_failed_executions_on_job_id" ON "solid_queue_failed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_job_batches" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_job_batches" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "parent_job_batch_id" integer, "on_finish_active_job" text, "on_success_active_job" text, "on_failure_active_job" text, "metadata" text, "finished_at" datetime(6), "changed_at" datetime(6), "last_changed_at" datetime(6), "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_changed_at" ON "solid_queue_job_batches" ("changed_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_finished_at" ON "solid_queue_job_batches" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_last_changed_at" ON "solid_queue_job_batches" ("last_changed_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_job_batches_on_parent_job_batch_id" ON "solid_queue_job_batches" ("parent_job_batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "class_name" varchar NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" varchar, "scheduled_at" datetime(6), "finished_at" datetime(6), "concurrency_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "batch_id" integer) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_active_job_id" ON "solid_queue_jobs" ("active_job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_batch_id" ON "solid_queue_jobs" ("batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_class_name" ON "solid_queue_jobs" ("class_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_finished_at" ON "solid_queue_jobs" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_filtering" ON "solid_queue_jobs" ("queue_name", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_alerting" ON "solid_queue_jobs" ("scheduled_at", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_pauses" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_pauses" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_pauses_on_queue_name" ON "solid_queue_pauses" ("queue_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_processes" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_processes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "kind" varchar NOT NULL, "last_heartbeat_at" datetime(6) NOT NULL, "supervisor_id" bigint, "pid" integer NOT NULL, "hostname" varchar, "metadata" text, "created_at" datetime(6) NOT NULL, "name" varchar NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_processes_on_last_heartbeat_at" ON "solid_queue_processes" ("last_heartbeat_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_processes_on_name_and_supervisor_id" ON "solid_queue_processes" ("name", "supervisor_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_processes_on_supervisor_id" ON "solid_queue_processes" ("supervisor_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_ready_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_ready_executions_on_job_id" ON "solid_queue_ready_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_all" ON "solid_queue_ready_executions" ("priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_by_queue" ON "solid_queue_ready_executions" ("queue_name", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_recurring_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "task_key" varchar NOT NULL, "run_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_job_id" ON "solid_queue_recurring_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_task_key_and_run_at" ON "solid_queue_recurring_executions" ("task_key", "run_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_recurring_tasks" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_recurring_tasks" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "schedule" varchar NOT NULL, "command" varchar(2048), "class_name" varchar, "arguments" text, "queue_name" varchar, "priority" integer DEFAULT 0, "static" boolean DEFAULT 1 NOT NULL, "description" text, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_tasks_on_key" ON "solid_queue_recurring_tasks" ("key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_recurring_tasks_on_static" ON "solid_queue_recurring_tasks" ("static") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_scheduled_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "scheduled_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_scheduled_executions_on_job_id" ON "solid_queue_scheduled_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_dispatch_all" ON "solid_queue_scheduled_executions" ("scheduled_at", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE IF EXISTS "solid_queue_semaphores" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_semaphores" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "key" varchar NOT NULL, "value" integer DEFAULT 1 NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_semaphores_on_expires_at" ON "solid_queue_semaphores" ("expires_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_semaphores_on_key_and_value" ON "solid_queue_semaphores" ("key", "value") /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_semaphores_on_key" ON "solid_queue_semaphores" ("key") /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_blocked_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" varchar NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_blocked_executions_on_job_id" ON "asolid_queue_blocked_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_blocked_executions_for_maintenance" ON "asolid_queue_blocked_executions" ("expires_at", "concurrency_key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_blocked_executions_for_release" ON "asolid_queue_blocked_executions" ("concurrency_key", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_blocked_executions" ("id","job_id","queue_name","priority","concurrency_key","expires_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","concurrency_key","expires_at","created_at" FROM "solid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_blocked_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "concurrency_key" varchar NOT NULL, "expires_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_4cd34e2228"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_release" ON "solid_queue_blocked_executions" ("concurrency_key", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_blocked_executions_for_maintenance" ON "solid_queue_blocked_executions" ("expires_at", "concurrency_key") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_blocked_executions_on_job_id" ON "solid_queue_blocked_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_blocked_executions" ("id","job_id","queue_name","priority","concurrency_key","expires_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","concurrency_key","expires_at","created_at" FROM "asolid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_blocked_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_claimed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "process_id" bigint, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_claimed_executions_on_process_id_and_job_id" ON "asolid_queue_claimed_executions" ("process_id", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_claimed_executions_on_job_id" ON "asolid_queue_claimed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_claimed_executions" ("id","job_id","process_id","created_at")
+                     SELECT "id","job_id","process_id","created_at" FROM "solid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "solid_queue_claimed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "process_id" bigint, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_9cfe4d4944"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_claimed_executions_on_job_id" ON "solid_queue_claimed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_claimed_executions_on_process_id_and_job_id" ON "solid_queue_claimed_executions" ("process_id", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_claimed_executions" ("id","job_id","process_id","created_at")
+                     SELECT "id","job_id","process_id","created_at" FROM "asolid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_claimed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_failed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "error" text, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_failed_executions_on_job_id" ON "asolid_queue_failed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_failed_executions" ("id","job_id","error","created_at")
+                     SELECT "id","job_id","error","created_at" FROM "solid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_failed_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "error" text, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_39bbc7a631"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_failed_executions_on_job_id" ON "solid_queue_failed_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_failed_executions" ("id","job_id","error","created_at")
+                     SELECT "id","job_id","error","created_at" FROM "asolid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_failed_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "class_name" varchar NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" varchar, "scheduled_at" datetime(6), "finished_at" datetime(6), "concurrency_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "batch_id" integer) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_for_alerting" ON "asolid_queue_jobs" ("scheduled_at", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_for_filtering" ON "asolid_queue_jobs" ("queue_name", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_finished_at" ON "asolid_queue_jobs" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_class_name" ON "asolid_queue_jobs" ("class_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_batch_id" ON "asolid_queue_jobs" ("batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_asolid_queue_jobs_on_active_job_id" ON "asolid_queue_jobs" ("active_job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_jobs" ("id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id")
+                     SELECT "id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id" FROM "solid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "solid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_jobs" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "queue_name" varchar NOT NULL, "class_name" varchar NOT NULL, "arguments" text, "priority" integer DEFAULT 0 NOT NULL, "active_job_id" varchar, "scheduled_at" datetime(6), "finished_at" datetime(6), "concurrency_key" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL, "batch_id" integer, CONSTRAINT "fk_rails_f1cb6e458f"
+FOREIGN KEY ("batch_id")
+  REFERENCES "solid_queue_job_batches" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_active_job_id" ON "solid_queue_jobs" ("active_job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_batch_id" ON "solid_queue_jobs" ("batch_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_class_name" ON "solid_queue_jobs" ("class_name") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_on_finished_at" ON "solid_queue_jobs" ("finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_filtering" ON "solid_queue_jobs" ("queue_name", "finished_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_jobs_for_alerting" ON "solid_queue_jobs" ("scheduled_at", "finished_at") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_jobs" ("id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id")
+                     SELECT "id","queue_name","class_name","arguments","priority","active_job_id","scheduled_at","finished_at","concurrency_key","created_at","updated_at","batch_id" FROM "asolid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_jobs" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_ready_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_solid_queue_poll_by_queue" ON "asolid_queue_ready_executions" ("queue_name", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_solid_queue_poll_all" ON "asolid_queue_ready_executions" ("priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_ready_executions_on_job_id" ON "asolid_queue_ready_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_ready_executions" ("id","job_id","queue_name","priority","created_at")
+                     SELECT "id","job_id","queue_name","priority","created_at" FROM "solid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_ready_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_81fcbd66af"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_ready_executions_on_job_id" ON "solid_queue_ready_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_all" ON "solid_queue_ready_executions" ("priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_poll_by_queue" ON "solid_queue_ready_executions" ("queue_name", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_ready_executions" ("id","job_id","queue_name","priority","created_at")
+                     SELECT "id","job_id","queue_name","priority","created_at" FROM "asolid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_ready_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_recurring_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "task_key" varchar NOT NULL, "run_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_recurring_executions_on_task_key_and_run_at" ON "asolid_queue_recurring_executions" ("task_key", "run_at") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_recurring_executions_on_job_id" ON "asolid_queue_recurring_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_recurring_executions" ("id","job_id","task_key","run_at","created_at")
+                     SELECT "id","job_id","task_key","run_at","created_at" FROM "solid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_recurring_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "task_key" varchar NOT NULL, "run_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_318a5533ed"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_job_id" ON "solid_queue_recurring_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_recurring_executions_on_task_key_and_run_at" ON "solid_queue_recurring_executions" ("task_key", "run_at") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_recurring_executions" ("id","job_id","task_key","run_at","created_at")
+                     SELECT "id","job_id","task_key","run_at","created_at" FROM "asolid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_recurring_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mPRAGMA foreign_keys /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = ON /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = OFF /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TEMPORARY TABLE "asolid_queue_scheduled_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "scheduled_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "tindex_solid_queue_dispatch_all" ON "asolid_queue_scheduled_executions" ("scheduled_at", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "tindex_asolid_queue_scheduled_executions_on_job_id" ON "asolid_queue_scheduled_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "asolid_queue_scheduled_executions" ("id","job_id","queue_name","priority","scheduled_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","scheduled_at","created_at" FROM "solid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "solid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "solid_queue_scheduled_executions" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "job_id" bigint NOT NULL, "queue_name" varchar NOT NULL, "priority" integer DEFAULT 0 NOT NULL, "scheduled_at" datetime(6) NOT NULL, "created_at" datetime(6) NOT NULL, CONSTRAINT "fk_rails_c4316f352d"
+FOREIGN KEY ("job_id")
+  REFERENCES "solid_queue_jobs" ("id")
+ ON DELETE CASCADE) /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_solid_queue_scheduled_executions_on_job_id" ON "solid_queue_scheduled_executions" ("job_id") /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE INDEX "index_solid_queue_dispatch_all" ON "solid_queue_scheduled_executions" ("scheduled_at", "priority", "job_id") /*application='Volatile'*/[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "solid_queue_scheduled_executions" ("id","job_id","queue_name","priority","scheduled_at","created_at")
+                     SELECT "id","job_id","queue_name","priority","scheduled_at","created_at" FROM "asolid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mDROP TABLE "asolid_queue_scheduled_executions" /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA defer_foreign_keys = 0 /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[35mPRAGMA foreign_keys = 1 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY) /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Volatile'*/[0m
+  [1m[35m (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20240131013203) /*application='Volatile'*/[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL) /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2025-10-18 15:44:11.134962', '2025-10-18 15:44:11.134963') RETURNING "key" /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'environment' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Update (0.0ms)[0m  [1m[33mUPDATE "ar_internal_metadata" SET "value" = 'test', "updated_at" = '2025-10-18 15:44:11.135655' WHERE "ar_internal_metadata"."key" = 'environment' /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = 'schema_sha1' ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1 /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('schema_sha1', 'e6e297ae82dabb1d0a30ebadc43fcf1a1151541e', '2025-10-18 15:44:11.136193', '2025-10-18 15:44:11.136193') RETURNING "key" /*application='Volatile'*/[0m
+[dotenv] Set [36mSOLID_QUEUE_IN_PUMA[0m
+[dotenv] Loaded [33m.env.development[0m
+[dotenv] Set [36mSOLID_QUEUE_IN_PUMA[0m
+[dotenv] Loaded [33m.env.development[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::Process Create (0.7ms)[0m  [1m[32mINSERT INTO "solid_queue_processes" ("kind", "last_heartbeat_at", "supervisor_id", "pid", "hostname", "metadata", "created_at", "name") VALUES ('Supervisor', '2025-10-18 15:44:13.215603', NULL, 57869, 'corin.local', NULL, '2025-10-18 15:44:13.224693', 'supervisor-cd3a10615c2c5aa61b72') RETURNING "id" /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Register Supervisor (11.1ms)  pid: 57869, hostname: "corin.local", process_id: 1, name: "supervisor-cd3a10615c2c5aa61b72"
+  [1m[36mSolidQueue::ClaimedExecution Load (0.1ms)[0m  [1m[34mSELECT "solid_queue_claimed_executions".* FROM "solid_queue_claimed_executions" LEFT OUTER JOIN "solid_queue_processes" ON "solid_queue_processes"."id" = "solid_queue_claimed_executions"."process_id" WHERE "solid_queue_processes"."id" IS NULL /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Fail claimed jobs (3.6ms)  job_ids: [], process_ids: []
+SolidQueue-1.1.5 Started Supervisor (40.9ms)  pid: 57869, hostname: "corin.local", process_id: 1, name: "supervisor-cd3a10615c2c5aa61b72"
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::Process Create (0.9ms)[0m  [1m[32mINSERT INTO "solid_queue_processes" ("kind", "last_heartbeat_at", "supervisor_id", "pid", "hostname", "metadata", "created_at", "name") VALUES ('Supervisor', '2025-10-18 15:44:13.248458', NULL, 57900, 'corin.local', NULL, '2025-10-18 15:44:13.255753', 'supervisor-e8112a8bd3a17f043088') RETURNING "id" /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Register Supervisor (11.1ms)  pid: 57900, hostname: "corin.local", process_id: 2, name: "supervisor-e8112a8bd3a17f043088"
+  [1m[36mSolidQueue::Process Load (0.1ms)[0m  [1m[34mSELECT "solid_queue_processes".* FROM "solid_queue_processes" WHERE "solid_queue_processes"."last_heartbeat_at" <= '2025-10-18 15:39:13.263990' AND "solid_queue_processes"."id" != 1 ORDER BY "solid_queue_processes"."id" ASC LIMIT 50  /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Prune dead processes (2.8ms)  size: 0
+  [1m[36mSolidQueue::ClaimedExecution Load (0.0ms)[0m  [1m[34mSELECT "solid_queue_claimed_executions".* FROM "solid_queue_claimed_executions" LEFT OUTER JOIN "solid_queue_processes" ON "solid_queue_processes"."id" = "solid_queue_claimed_executions"."process_id" WHERE "solid_queue_processes"."id" IS NULL /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Fail claimed jobs (1.5ms)  job_ids: [], process_ids: []
+SolidQueue-1.1.5 Started Supervisor (22.1ms)  pid: 57900, hostname: "corin.local", process_id: 2, name: "supervisor-e8112a8bd3a17f043088"
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::Process Create (2.0ms)[0m  [1m[32mINSERT INTO "solid_queue_processes" ("kind", "last_heartbeat_at", "supervisor_id", "pid", "hostname", "metadata", "created_at", "name") VALUES ('Dispatcher', '2025-10-18 15:44:13.259480', 1, 57901, 'corin.local', '{"polling_interval":1,"batch_size":500,"concurrency_maintenance_interval":600}', '2025-10-18 15:44:13.269493', 'dispatcher-cc5094f6390e1285a37b') RETURNING "id" /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Register Dispatcher (14.2ms)  pid: 57901, hostname: "corin.local", process_id: 3, name: "dispatcher-cc5094f6390e1285a37b"
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Started Dispatcher (15.4ms)  pid: 57901, hostname: "corin.local", process_id: 3, name: "dispatcher-cc5094f6390e1285a37b", polling_interval: 1, batch_size: 500, concurrency_maintenance_interval: 600
+  [1m[36mSolidQueue::Process Create (4.8ms)[0m  [1m[32mINSERT INTO "solid_queue_processes" ("kind", "last_heartbeat_at", "supervisor_id", "pid", "hostname", "metadata", "created_at", "name") VALUES ('Worker', '2025-10-18 15:44:13.262368', 1, 57902, 'corin.local', '{"polling_interval":0.1,"queues":"*","thread_pool_size":3}', '2025-10-18 15:44:13.269521', 'worker-54d441e57e453fe258d4') RETURNING "id" /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::Process Load (0.2ms)[0m  [1m[34mSELECT "solid_queue_processes".* FROM "solid_queue_processes" WHERE "solid_queue_processes"."last_heartbeat_at" <= '2025-10-18 15:39:13.273601' AND "solid_queue_processes"."id" != 2 ORDER BY "solid_queue_processes"."id" ASC LIMIT 50  /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Register Worker (14.5ms)  pid: 57902, hostname: "corin.local", process_id: 4, name: "worker-54d441e57e453fe258d4"
+SolidQueue-1.1.5 Prune dead processes (3.7ms)  size: 0
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Started Worker (16.8ms)  pid: 57902, hostname: "corin.local", process_id: 4, name: "worker-54d441e57e453fe258d4", polling_interval: 0.1, queues: "*", thread_pool_size: 3
+  [1m[36mSolidQueue::Process Create (1.8ms)[0m  [1m[32mINSERT INTO "solid_queue_processes" ("kind", "last_heartbeat_at", "supervisor_id", "pid", "hostname", "metadata", "created_at", "name") VALUES ('Dispatcher', '2025-10-18 15:44:13.272005', 2, 57903, 'corin.local', '{"polling_interval":1,"batch_size":500,"concurrency_maintenance_interval":600}', '2025-10-18 15:44:13.276242', 'dispatcher-34ad8f862be84c2da339') RETURNING "id" /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Register Dispatcher (8.0ms)  pid: 57903, hostname: "corin.local", process_id: 5, name: "dispatcher-34ad8f862be84c2da339"
+SolidQueue-1.1.5 Started Dispatcher (9.3ms)  pid: 57903, hostname: "corin.local", process_id: 5, name: "dispatcher-34ad8f862be84c2da339", polling_interval: 1, batch_size: 500, concurrency_maintenance_interval: 600
+  [1m[36mSolidQueue::Process Create (2.9ms)[0m  [1m[32mINSERT INTO "solid_queue_processes" ("kind", "last_heartbeat_at", "supervisor_id", "pid", "hostname", "metadata", "created_at", "name") VALUES ('Worker', '2025-10-18 15:44:13.273531', 2, 57904, 'corin.local', '{"polling_interval":0.1,"queues":"*","thread_pool_size":3}', '2025-10-18 15:44:13.276680', 'worker-8ce837a35cb1c91a1d9f') RETURNING "id" /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::Semaphore Pluck (0.0ms)[0m  [1m[34mSELECT "solid_queue_semaphores"."id" FROM "solid_queue_semaphores" WHERE "solid_queue_semaphores"."expires_at" < '2025-10-18 15:44:13.279269' ORDER BY "solid_queue_semaphores"."id" ASC LIMIT 500 /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Register Worker (8.6ms)  pid: 57904, hostname: "corin.local", process_id: 6, name: "worker-8ce837a35cb1c91a1d9f"
+SolidQueue-1.1.5 Started Worker (9.6ms)  pid: 57904, hostname: "corin.local", process_id: 6, name: "worker-8ce837a35cb1c91a1d9f", polling_interval: 0.1, queues: "*", thread_pool_size: 3
+  [1m[36mSolidQueue::Semaphore Pluck (0.0ms)[0m  [1m[34mSELECT "solid_queue_semaphores"."id" FROM "solid_queue_semaphores" WHERE "solid_queue_semaphores"."expires_at" < '2025-10-18 15:44:13.282080' ORDER BY "solid_queue_semaphores"."id" ASC LIMIT 500 /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::BlockedExecution Pluck (0.1ms)[0m  [1m[34mSELECT DISTINCT "solid_queue_blocked_executions"."concurrency_key" FROM "solid_queue_blocked_executions" WHERE "solid_queue_blocked_executions"."expires_at" < '2025-10-18 15:44:13.288058' ORDER BY "solid_queue_blocked_executions"."concurrency_key" ASC LIMIT 500 /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::BlockedExecution Pluck (0.0ms)[0m  [1m[34mSELECT DISTINCT "solid_queue_blocked_executions"."concurrency_key" FROM "solid_queue_blocked_executions" WHERE "solid_queue_blocked_executions"."expires_at" < '2025-10-18 15:44:13.288216' ORDER BY "solid_queue_blocked_executions"."concurrency_key" ASC LIMIT 500 /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Unblock jobs (1.8ms)  limit: 500, size: 0
+SolidQueue-1.1.5 Unblock jobs (2.1ms)  limit: 500, size: 0
+Started GET "/" for 127.0.0.1 at 2025-10-18 11:44:15 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Volatile'*/[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | GC: 0.0ms)
+Completed 200 OK in 57ms (Views: 11.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/assets/application-41d920f7.css" for 127.0.0.1 at 2025-10-18 11:44:15 -0400
+Started GET "/assets/application-7bc4ee30.js" for 127.0.0.1 at 2025-10-18 11:44:15 -0400
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::Process Destroy (2.0ms)[0m  [1m[31mDELETE FROM "solid_queue_processes" WHERE "solid_queue_processes"."id" = 5 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (3.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Deregister Dispatcher (9.1ms)  process_id: 5, pid: 57903, hostname: "corin.local", name: "dispatcher-34ad8f862be84c2da339", last_heartbeat_at: "2025-10-18T15:44:13Z", claimed_size: nil, pruned: false
+SolidQueue-1.1.5 Shutdown Dispatcher (11.1ms)  pid: 57903, hostname: "corin.local", process_id: 5, name: "dispatcher-34ad8f862be84c2da339", polling_interval: 1, batch_size: 500, concurrency_maintenance_interval: 600
+  [1m[36mSolidQueue::Process Destroy (5.0ms)[0m  [1m[31mDELETE FROM "solid_queue_processes" WHERE "solid_queue_processes"."id" = 3 /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (4.7ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Deregister Dispatcher (8.1ms)  process_id: 3, pid: 57901, hostname: "corin.local", name: "dispatcher-cc5094f6390e1285a37b", last_heartbeat_at: "2025-10-18T15:44:13Z", claimed_size: nil, pruned: false
+SolidQueue-1.1.5 Shutdown Dispatcher (9.4ms)  pid: 57901, hostname: "corin.local", process_id: 3, name: "dispatcher-cc5094f6390e1285a37b", polling_interval: 1, batch_size: 500, concurrency_maintenance_interval: 600
+  [1m[36mSolidQueue::Process Destroy (6.2ms)[0m  [1m[31mDELETE FROM "solid_queue_processes" WHERE "solid_queue_processes"."id" = 4 /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::ClaimedExecution Load (0.2ms)[0m  [1m[34mSELECT "solid_queue_claimed_executions".* FROM "solid_queue_claimed_executions" WHERE "solid_queue_claimed_executions"."process_id" = 4 /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Release claimed jobs (1.6ms)  size: 0
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (14.0ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Deregister Worker (16.8ms)  process_id: 4, pid: 57902, hostname: "corin.local", name: "worker-54d441e57e453fe258d4", last_heartbeat_at: "2025-10-18T15:44:13Z", claimed_size: nil, pruned: false
+SolidQueue-1.1.5 Shutdown Worker (18.3ms)  pid: 57902, hostname: "corin.local", process_id: 4, name: "worker-54d441e57e453fe258d4", polling_interval: 0.1, queues: "*", thread_pool_size: 3
+  [1m[36mSolidQueue::Process Destroy (15.5ms)[0m  [1m[31mDELETE FROM "solid_queue_processes" WHERE "solid_queue_processes"."id" = 6 /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::ClaimedExecution Load (0.1ms)[0m  [1m[34mSELECT "solid_queue_claimed_executions".* FROM "solid_queue_claimed_executions" WHERE "solid_queue_claimed_executions"."process_id" = 6 /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Release claimed jobs (1.4ms)  size: 0
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Deregister Worker (25.3ms)  process_id: 6, pid: 57904, hostname: "corin.local", name: "worker-8ce837a35cb1c91a1d9f", last_heartbeat_at: "2025-10-18T15:44:13Z", claimed_size: nil, pruned: false
+SolidQueue-1.1.5 Shutdown Worker (27.6ms)  pid: 57904, hostname: "corin.local", process_id: 6, name: "worker-8ce837a35cb1c91a1d9f", polling_interval: 0.1, queues: "*", thread_pool_size: 3
+SolidQueue-1.1.5 Supervisor terminated gracefully (105.7ms)  process_id: 2, supervisor_pid: 57900, supervised_processes: [57903, 57904]
+SolidQueue-1.1.5 Supervisor terminated gracefully (0.0ms)  process_id: 2, supervisor_pid: 57900, supervised_processes: []
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::Process Destroy (1.3ms)[0m  [1m[31mDELETE FROM "solid_queue_processes" WHERE "solid_queue_processes"."id" = 2 /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Supervisor terminated gracefully (110.3ms)  process_id: 1, supervisor_pid: 57869, supervised_processes: [57901, 57902]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN immediate TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::Process Destroy (1.6ms)[0m  [1m[31mDELETE FROM "solid_queue_processes" WHERE "solid_queue_processes"."id" = 1 /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::Process Load (0.1ms)[0m  [1m[34mSELECT "solid_queue_processes".* FROM "solid_queue_processes" WHERE "solid_queue_processes"."supervisor_id" = 2 /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Deregister Supervisor (9.5ms)  process_id: 2, pid: 57900, hostname: "corin.local", name: "supervisor-e8112a8bd3a17f043088", last_heartbeat_at: "2025-10-18T15:44:13Z", claimed_size: nil, pruned: false
+SolidQueue-1.1.5 Shutdown Supervisor (10.1ms)  pid: 57900, hostname: "corin.local", process_id: 2, name: "supervisor-e8112a8bd3a17f043088"
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mCOMMIT TRANSACTION /*application='Volatile'*/[0m
+  [1m[36mSolidQueue::Process Load (0.1ms)[0m  [1m[34mSELECT "solid_queue_processes".* FROM "solid_queue_processes" WHERE "solid_queue_processes"."supervisor_id" = 1 /*application='Volatile'*/[0m
+SolidQueue-1.1.5 Deregister Supervisor (10.4ms)  process_id: 1, pid: 57869, hostname: "corin.local", name: "supervisor-cd3a10615c2c5aa61b72", last_heartbeat_at: "2025-10-18T15:44:13Z", claimed_size: nil, pruned: false
+SolidQueue-1.1.5 Shutdown Supervisor (10.9ms)  pid: 57869, hostname: "corin.local", process_id: 1, name: "supervisor-cd3a10615c2c5aa61b72"
+[dotenv] Set [36mSOLID_QUEUE_IN_PUMA[0m
+[dotenv] Loaded [33m.env.development[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Volatile'*/[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC /*application='Volatile'*/[0m

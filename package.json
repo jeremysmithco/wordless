@@ -1,0 +1,21 @@
+{
+  "name": "volatile",
+  "private": true,
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.13",
+    "@rails/activestorage": "^8.0.200",
+    "esbuild": "^0.25.5",
+    "esbuild-rails": "^1.0.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.7",
+    "@tailwindcss/typography": "^0.5.10",
+    "tailwindcss": "^4.1.7"
+  },
+  "version": "0.1.0",
+  "scripts": {
+    "build": "node esbuild.config.js",
+    "build:css": "npx @tailwindcss/cli -i ./app/assets/stylesheets/application.css -o ./app/assets/builds/application.css --minify"
+  }
+}
