@@ -1,5 +1,7 @@
-<div class="flex items-center justify-center">
-  <%= mail_to "login@wordless.fyi" do %>
-    <%= icon("arrow-right-circle", size: "size-30", other: "text-[#00FF88]") %>
-  <% end %>
-</div>
+<% if !user_logged_in? %>
+  <div class="flex items-center justify-center">
+    <%= mail_to "login@wordless.fyi" do %>
+      <%= icon("arrow-right-circle", size: "size-30", other: "text-[#00FF88]") %>
+    <% end %>
+  </div>
+<% end %>

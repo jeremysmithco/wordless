@@ -1,0 +1,11 @@
+<h1>Wordless Login</h1>
+
+<p>
+  <%= link_to "Log in to Wordless", new_session_url(token: @user.auth_token) %>.
+</p>
+
+<p>
+  <small>
+    (Link expires in <%= distance_of_time_in_words_to_now(@user.auth_token_expires_at) %>.)
+  </small>
+</p>

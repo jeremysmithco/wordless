@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+require 'listen'
+
+# This script watches for ActionMailer mail delivered to tmp/mails in dev,
+# adds a timestamp and proper extension to the filename, and opens in the
+# default client (Mac-only).
+
+APP_ROOT = File.expand_path('..', __dir__)
+
+listener = Listen.to("#{APP_ROOT}/tmp/mails") do |_modified, added, _removed|
+  added.each do |added_file|
+    if added_file.end_with?(".eml")
+      system("open -a Mail #{added_file}")
+    else
+      File.rename(added_file, "#{added_file}-#{Time.now.to_i}.eml")
+    end
+  end
+end
+
+listener.start
+sleep
