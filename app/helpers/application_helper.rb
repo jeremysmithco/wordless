@@ -1,4 +1,8 @@
 module ApplicationHelper
+  def icon(path, **options)
+    render("icons/#{path}", options)
+  end
+
   def flash_class(level)
     case level
     when "success" then "bg-green-700"
