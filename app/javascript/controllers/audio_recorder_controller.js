@@ -28,7 +28,20 @@ export default class extends Controller {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
 
-      this.mediaRecorder = new MediaRecorder(stream)
+      // Select appropriate MIME type based on browser support
+      let options = { mimeType: 'audio/webm' }
+      if (!MediaRecorder.isTypeSupported('audio/webm')) {
+        if (MediaRecorder.isTypeSupported('audio/mp4')) {
+          options = { mimeType: 'audio/mp4' }
+        } else if (MediaRecorder.isTypeSupported('audio/mpeg')) {
+          options = { mimeType: 'audio/mpeg' }
+        } else {
+          options = {} // Use browser default
+        }
+      } else {
+      }
+
+      this.mediaRecorder = new MediaRecorder(stream, options)
       this.audioChunks = []
 
       this.mediaRecorder.addEventListener("dataavailable", (event) => {
@@ -119,7 +132,18 @@ export default class extends Controller {
   async uploadRecording(audioBlob, duration) {
     this.durationInputTarget.value = duration;
 
-    const audioFile = new File([audioBlob], "recording.webm");
+    // Determine file extension based on actual MIME type
+    const mimeType = this.mediaRecorder.mimeType
+    let extension = 'webm'
+    if (mimeType.includes('mp4')) {
+      extension = 'mp4'
+    } else if (mimeType.includes('mpeg')) {
+      extension = 'mp3'
+    } else if (mimeType.includes('webm')) {
+      extension = 'webm'
+    }
+
+    const audioFile = new File([audioBlob], `recording.${extension}`, { type: mimeType });
     const dataTransfer = new DataTransfer();
 
     dataTransfer.items.add(audioFile);
