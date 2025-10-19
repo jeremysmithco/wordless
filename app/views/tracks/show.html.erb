@@ -1,3 +1,52 @@
-<div class="flex justify-center">
+<div class="flex justify-center mb-4">
   <h1 class="font-mono text-xl">#<%= @track.number %></h1>
 </div>
+
+<div class="mb-24">
+  <% @recordings.each do |recording| %>
+    <div class="flex items-center justify-center mb-4">
+      <div class="w-3xl">
+        <div class="flex items-center gap-4 mb-2">
+          <%= avatar(user: recording.user, size: "size-12") %>
+
+          <audio controls class="flex-1">
+            <%= tag.source src: url_for(recording.file), type: recording.file.content_type %>
+          </audio>
+
+          <%= button_to recording_path(recording), method: :delete,
+              data: { turbo_confirm: "???" },
+              class: "cursor-pointer text-red-600" do %>
+            <%= icon("x-circle", size: "size-14") %>
+          <% end %>
+        </div>
+
+        <div class="flex justify-center text-sm text-gray-600 gap-4">
+          <span class="text-gray-500">
+            <%= recording.created_at %>
+          </span>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<%= form_for [@recording.track, @recording], data: { controller: "audio-recorder" } do |f| %>
+  <%= f.hidden_field :duration, data: { audio_recorder_target: "durationInput" } %>
+  <%= f.file_field :file, hidden: true, direct_upload: true, accept: "audio/webm", data: { audio_recorder_target: "fileInput" } %>
+
+  <div class="flex flex-col">
+    <div class="flex justify-center gap-4">
+      <%= content_tag :button, type: :button, data: { audio_recorder_target: "recordButton", action: "audio-recorder#startRecording" }, class: "cursor-pointer" do %>
+        <%= icon("record-circle", size: "size-30", other: "text-red-600") %>
+      <% end %>
+
+      <%= content_tag :button, type: :button, data: { audio_recorder_target: "stopButton", action: "audio-recorder#stopRecording" }, class: "cursor-pointer" do %>
+        <%= icon("stop-circle", size: "size-30") %>
+      <% end %>
+    </div>
+
+    <div class="flex justify-center">
+      <p data-audio-recorder-target="duration" class="text-sm text-gray-600"></p>
+    </div>
+  </div>
+<% end %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_10_19_013941) do
+ActiveRecord::Schema[8.0].define(version: 2025_10_19_020838) do
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
     t.string "message_id", null: false
@@ -52,6 +52,10 @@ ActiveRecord::Schema[8.0].define(version: 2025_10_19_013941) do
     t.integer "duration"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "track_id"
+    t.integer "user_id"
+    t.index ["track_id"], name: "index_recordings_on_track_id"
+    t.index ["user_id"], name: "index_recordings_on_user_id"
   end
 
   create_table "tracks", force: :cascade do |t|

@@ -9,5 +9,8 @@ class TracksController < ApplicationController
 
   def show
     @track = Track.find_by!(number: params[:id])
+
+    @recordings = Recording.where(track: @track).order(:created_at)
+    @recording = Recording.new(track: @track)
   end
 end

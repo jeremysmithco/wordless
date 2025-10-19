@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :recordings, only: [:create, :destroy]
-  resources :tracks, only: [:create, :show, :destroy]
+  resources :tracks, shallow: true, only: [:create, :show, :destroy] do
+    resources :recordings, only: [:create, :destroy]
+  end
 
   resource :session, only: [:new, :destroy]
   resource :avatar, only: [:new, :update, :destroy]

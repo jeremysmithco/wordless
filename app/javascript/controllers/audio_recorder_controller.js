@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["recordButton", "stopButton", "status", "duration"]
+  static targets = ["recordButton", "stopButton", "durationInput", "fileInput", "duration"]
 
   connect() {
     this.mediaRecorder = null
@@ -44,7 +44,6 @@ export default class extends Controller {
 
     } catch (error) {
       console.error("Error accessing microphone:", error)
-      this.statusTarget.textContent = "Error: Could not access microphone"
     }
   }
 
@@ -61,7 +60,7 @@ export default class extends Controller {
       const elapsed = Date.now() - this.startTime
       const seconds = Math.floor(elapsed / 1000)
       const remainingSeconds = 60 - seconds
-      this.durationTarget.textContent = `${remainingSeconds}s remaining`
+      this.durationTarget.textContent = `${remainingSeconds}`
     }, 100)
   }
 
@@ -93,25 +92,15 @@ export default class extends Controller {
   }
 
   async uploadRecording(audioBlob, duration) {
-    const formData = new FormData()
-    formData.append("recording[file]", audioBlob, "recording.webm")
-    formData.append("recording[duration]", duration)
+    this.durationInputTarget.value = duration;
 
-    const csrfToken = document.querySelector('meta[name="csrf-token"]').content
+    const audioFile = new File([audioBlob], "recording.webm");
+    const dataTransfer = new DataTransfer();
 
-    const response = await fetch("/recordings", {
-      method: "POST",
-      headers: {
-        "X-CSRF-Token": csrfToken
-      },
-      body: formData
-    })
+    dataTransfer.items.add(audioFile);
+    this.fileInputTarget.files = dataTransfer.files;
 
-    if (!response.ok) {
-      throw new Error("Upload failed")
-    }
-
-    return response.json()
+    this.element.requestSubmit()
   }
 
   updateUI(state) {
@@ -119,31 +108,22 @@ export default class extends Controller {
       case "recording":
         this.recordButtonTarget.disabled = true
         this.stopButtonTarget.disabled = false
-        this.statusTarget.textContent = "Recording..."
-        this.statusTarget.className = "text-red-600 font-semibold"
         break
       case "uploading":
         this.recordButtonTarget.disabled = true
         this.stopButtonTarget.disabled = true
-        this.statusTarget.textContent = "Uploading..."
-        this.statusTarget.className = "text-blue-600"
         this.durationTarget.textContent = ""
         break
       case "success":
-        this.statusTarget.textContent = "Upload successful!"
-        this.statusTarget.className = "text-green-600"
         break
       case "error":
         this.recordButtonTarget.disabled = false
         this.stopButtonTarget.disabled = true
-        this.statusTarget.textContent = "Upload failed. Please try again."
-        this.statusTarget.className = "text-red-600"
         this.durationTarget.textContent = ""
         break
       default:
         this.recordButtonTarget.disabled = false
         this.stopButtonTarget.disabled = true
-        this.statusTarget.textContent = ""
         this.durationTarget.textContent = ""
     }
   }
