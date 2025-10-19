@@ -11,6 +11,6 @@ class TracksController < ApplicationController
     @track = Track.find_by!(number: params[:id])
 
     @recordings = Recording.where(track: @track).order(:created_at)
-    @recording = Recording.new(track: @track)
+    @recording = Recording.new(track: @track, user: Current.user) if user_logged_in?
   end
 end

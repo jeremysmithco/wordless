@@ -1,18 +1,27 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["recordButton", "stopButton", "durationInput", "fileInput", "duration"]
+  static targets = ["toggleButton", "recordIcon", "stopIcon", "durationInput", "fileInput", "duration"]
 
   connect() {
     this.mediaRecorder = null
     this.audioChunks = []
     this.startTime = null
     this.timerInterval = null
-    this.maxDuration = 60000 // 60 seconds in milliseconds
+    this.maxDuration = 600000 // 10 minutes in milliseconds
+    this.isRecording = false
   }
 
   disconnect() {
     this.stopRecording()
+  }
+
+  toggleRecording() {
+    if (this.isRecording) {
+      this.stopRecording()
+    } else {
+      this.startRecording()
+    }
   }
 
   async startRecording() {
@@ -32,6 +41,7 @@ export default class extends Controller {
 
       this.mediaRecorder.start()
       this.startTime = Date.now()
+      this.isRecording = true
       this.updateUI("recording")
       this.startTimer()
 
@@ -51,6 +61,7 @@ export default class extends Controller {
     if (this.mediaRecorder && this.mediaRecorder.state === "recording") {
       this.mediaRecorder.stop()
       this.mediaRecorder.stream.getTracks().forEach(track => track.stop())
+      this.isRecording = false
       this.stopTimer()
     }
   }
@@ -58,9 +69,20 @@ export default class extends Controller {
   startTimer() {
     this.timerInterval = setInterval(() => {
       const elapsed = Date.now() - this.startTime
-      const seconds = Math.floor(elapsed / 1000)
-      const remainingSeconds = 60 - seconds
-      this.durationTarget.textContent = `${remainingSeconds}`
+      const totalSeconds = Math.floor(elapsed / 1000)
+      const minutes = Math.floor(totalSeconds / 60)
+      const seconds = totalSeconds % 60
+
+      // Format as MM:SS with zero-padding
+      const formattedTime = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`
+      this.durationTarget.textContent = formattedTime
+
+      // Turn red at 9 minutes (540 seconds)
+      if (totalSeconds >= 540) {
+        this.durationTarget.classList.add('text-red-600')
+      } else {
+        this.durationTarget.classList.remove('text-red-600')
+      }
     }, 100)
   }
 
@@ -69,6 +91,9 @@ export default class extends Controller {
       clearInterval(this.timerInterval)
       this.timerInterval = null
     }
+    // Reset timer display and color
+    this.durationTarget.textContent = ""
+    this.durationTarget.classList.remove('text-red-600')
   }
 
   async handleRecordingComplete() {
@@ -106,25 +131,30 @@ export default class extends Controller {
   updateUI(state) {
     switch(state) {
       case "recording":
-        this.recordButtonTarget.disabled = true
-        this.stopButtonTarget.disabled = false
+        this.recordIconTarget.classList.add("hidden")
+        this.stopIconTarget.classList.remove("hidden")
+        this.toggleButtonTarget.disabled = false
         break
       case "uploading":
-        this.recordButtonTarget.disabled = true
-        this.stopButtonTarget.disabled = true
+        this.toggleButtonTarget.disabled = true
         this.durationTarget.textContent = ""
+        this.durationTarget.classList.remove('text-red-600')
         break
       case "success":
         break
       case "error":
-        this.recordButtonTarget.disabled = false
-        this.stopButtonTarget.disabled = true
+        this.recordIconTarget.classList.remove("hidden")
+        this.stopIconTarget.classList.add("hidden")
+        this.toggleButtonTarget.disabled = false
         this.durationTarget.textContent = ""
+        this.durationTarget.classList.remove('text-red-600')
         break
       default:
-        this.recordButtonTarget.disabled = false
-        this.stopButtonTarget.disabled = true
+        this.recordIconTarget.classList.remove("hidden")
+        this.stopIconTarget.classList.add("hidden")
+        this.toggleButtonTarget.disabled = false
         this.durationTarget.textContent = ""
+        this.durationTarget.classList.remove('text-red-600')
     }
   }
 }

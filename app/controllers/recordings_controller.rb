@@ -5,7 +5,7 @@ class RecordingsController < ApplicationController
   def create
     @recording = Recording.new(recording_params.merge(track: @track, user: Current.user))
     @recording.save
-    redirect_to @recording.track
+    redirect_to track_path(@recording.track, anchor: @recording.id)
   end
 
   def destroy

@@ -24,4 +24,13 @@ module ApplicationHelper
     when "alert" then "bg-red-700"
     end
   end
+
+  def format_duration(milliseconds)
+    return "00:00" if milliseconds.blank?
+
+    total_seconds = (milliseconds / 1000.0).floor
+    minutes = total_seconds / 60
+    seconds = total_seconds % 60
+    sprintf("%02d:%02d", minutes, seconds)
+  end
 end
