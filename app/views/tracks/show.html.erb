@@ -5,25 +5,28 @@
 <div class="mb-24">
   <% @recordings.each do |recording| %>
     <div class="flex items-center justify-center mb-4">
-      <div class="w-3xl">
-        <div class="flex items-center gap-4 mb-2">
-          <%= avatar(user: recording.user, size: "size-12") %>
+      <div>
+        <div class="flex items-start gap-4 mb-2">
+          <div class="flex flex-col items-center" data-controller="waveform" data-waveform-url-value="<%= url_for(recording.file) %>">
+            <%= avatar(user: recording.user, size: "size-16") %>
+            <div class="text-sm text-gray-500">
+              <%= recording.created_at.strftime("%Y-%m-%d %H:%M") %>
+            </div>
 
-          <audio controls class="flex-1">
-            <%= tag.source src: url_for(recording.file), type: recording.file.content_type %>
-          </audio>
+            <div data-waveform-target="container" class="flex h-120"></div>
 
-          <%= button_to recording_path(recording), method: :delete,
-              data: { turbo_confirm: "???" },
-              class: "cursor-pointer text-red-600" do %>
-            <%= icon("x-circle", size: "size-14") %>
-          <% end %>
-        </div>
+            <audio controls class="hidden" data-waveform-target="audio">
+              <%= tag.source src: url_for(recording.file), type: recording.file.content_type %>
+            </audio>
 
-        <div class="flex justify-center text-sm text-gray-600 gap-4">
-          <span class="text-gray-500">
-            <%= recording.created_at %>
-          </span>
+            <% if recording.user == Current.user %>
+              <%= button_to recording_path(recording), method: :delete,
+                  data: { turbo_confirm: "???" },
+                  class: "cursor-pointer text-red-600" do %>
+                <%= icon("x-circle", size: "size-14") %>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
