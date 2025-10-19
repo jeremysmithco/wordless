@@ -11,6 +11,6 @@ class Track < ApplicationRecord
   private
 
   def set_number
-    self.number = SecureRandom.random_number(1_000_000_000_000)
+    self.number = SecureRandom.random_number(900_000_000_000) + 100_000_000_000
   end
 end

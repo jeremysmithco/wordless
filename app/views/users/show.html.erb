@@ -1,0 +1,29 @@
+<div class="flex flex-col items-center justify-center gap-2 mb-8">
+  <%= avatar(user: @user, size: "size-30") %>
+
+  <div class="flex items-center gap-2">
+    <%= icon("cake", size: "size-5") %>
+
+    <div class="font-mono text-lg text-neutral-500">
+      <%= @user.created_at.strftime("%Y-%m-%d %H:%M") %>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-2">
+    <%= icon("microphone", size: "size-5") %>
+
+    <div class="font-mono text-lg text-neutral-500">
+      <%= @tracks.count %>
+    </div>
+  </div>
+</div>
+
+<div class="flex flex-col items-center gap-4">
+  <% @tracks.each do |track| %>
+    <%= link_to [track], class: "flex items-center gap-4" do %>
+      <div class="font-mono text-xl">
+        <span class="text-neutral-400">#<span><span class="text-black"><%= track.number %></span>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,5 +1,11 @@
-<div class="flex justify-center mb-4">
-  <h1 class="font-mono text-xl">#<%= @track.number %></h1>
+<div class="flex items-center justify-center gap-4 mb-8">
+  <%= link_to [@track.user] do %>
+    <%= avatar(user: @track.user, size: "size-6") %>
+  <% end %>
+
+  <div class="font-mono text-xl">
+    <span class="text-neutral-400">#<span><span class="text-black"><%= @track.number %></span>
+  </div>
 </div>
 
 <div class="mb-24">
@@ -8,7 +14,9 @@
       <div>
         <div class="flex items-start gap-4 mb-2">
           <div class="flex flex-col items-center" data-controller="waveform" data-waveform-url-value="<%= url_for(recording.file) %>">
-            <%= avatar(user: recording.user, size: "size-16") %>
+            <%= link_to [recording.user] do %>
+              <%= avatar(user: recording.user, size: "size-16") %>
+            <% end %>
 
             <div class="my-2 font-mono font-semibold text-sm text-neutral-500">
               <%= recording.created_at.strftime("%Y-%m-%d %H:%M") %>
@@ -28,7 +36,7 @@
               <%= button_to recording_path(recording), method: :delete,
                   data: { turbo_confirm: "???" },
                   class: "cursor-pointer" do %>
-                <%= icon("x-circle", size: "size-14") %>
+                <%= icon("x-circle", size: "size-10") %>
               <% end %>
             <% end %>
           </div>
@@ -44,7 +52,9 @@
     <%= f.file_field :file, hidden: true, direct_upload: true, accept: "audio/webm", data: { audio_recorder_target: "fileInput" } %>
 
     <div class="flex flex-col items-center">
-      <%= avatar(user: @recording.user, size: "size-16") %>
+      <%= link_to [@recording.user] do %>
+        <%= avatar(user: @recording.user, size: "size-16") %>
+      <% end %>
 
       <div class="my-2 font-mono font-semibold text-sm text-neutral-500">
         <%= Time.current.strftime("%Y-%m-%d %H:%M") %>

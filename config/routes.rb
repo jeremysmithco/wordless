@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :recordings, only: [:create, :destroy]
   end
 
+  resources :users, only: [:show]
+
   resource :session, only: [:new, :destroy]
   resource :avatar, only: [:new, :update, :destroy]
   resource :account, only: [:show]

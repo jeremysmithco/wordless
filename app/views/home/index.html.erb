@@ -6,10 +6,14 @@
   </div>
 <% end %>
 
-<% Track.all.each do |track| %>
-  <div class="mb-2">
-    <%= link_to [track], class: "font-mono" do %>
-      #<%= track.number %>
+<div class="flex flex-col items-center gap-4">
+  <% Track.all.each do |track| %>
+    <%= link_to [track], class: "flex items-center gap-4" do %>
+      <%= avatar(user: track.user, size: "size-6") %>
+
+      <div class="font-mono text-xl">
+        <span class="text-neutral-400">#<span><span class="text-black"><%= track.number %></span>
+      </div>
     <% end %>
-  </div>
-<% end %>
+  <% end %>
+</div>
