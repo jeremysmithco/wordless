@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :recordings, only: [ :index, :create, :destroy ]
+  resources :recordings, only: [:create, :destroy]
+  resources :tracks, only: [:create, :show, :destroy]
 
   resource :session, only: [:new, :destroy]
   resource :avatar, only: [:new, :update, :destroy]

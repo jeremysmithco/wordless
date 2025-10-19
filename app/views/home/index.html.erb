@@ -5,3 +5,11 @@
     <% end %>
   </div>
 <% end %>
+
+<% Track.all.each do |track| %>
+  <div class="mb-2">
+    <%= link_to [track], class: "font-mono" do %>
+      #<%= track.number %>
+    <% end %>
+  </div>
+<% end %>

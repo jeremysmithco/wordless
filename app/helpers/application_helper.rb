@@ -7,10 +7,10 @@ module ApplicationHelper
     if user.avatar.attached? && user.avatar.variable?
       image_tag(
         user.avatar.variant(:thumb),
-        class: "#{size} rounded-full bg-gray-500"
+        class: "#{size} rounded-full bg-neutral-500"
       )
     else
-      tag.div(class: "#{size} rounded-full bg-gray-500 flex shrink-0 justify-center items-center")
+      tag.div(class: "#{size} rounded-full bg-neutral-500 flex shrink-0 justify-center items-center")
     end
   end
 
