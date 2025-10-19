@@ -1,0 +1,9 @@
+<div class="flex items-center justify-center">
+  <%= form_for Current.user, url: avatar_path, builder: TailwindBuilder, data: { controller: "file-upload" } do |f| %>
+    <%= f.file_field :avatar, hidden: true, direct_upload: true, accept: "image/png,image/gif,image/jpeg", data: { file_upload_target: "file" } %>
+
+    <%= content_tag :button, type: :button, data: { action: "file-upload#openFileSelector" } do %>
+      <%= icon("user-circle", size: "size-30") %>
+    <% end %>
+  <% end %>
+</div>

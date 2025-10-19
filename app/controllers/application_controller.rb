@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def require_user_logged_in!
-    redirect_to [:new, :sessions], alert: 'You must be logged in' unless user_logged_in?
+    redirect_to [:new, :session] unless user_logged_in?
   end
 
   def user_logged_in?

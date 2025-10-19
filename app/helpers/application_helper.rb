@@ -3,6 +3,17 @@ module ApplicationHelper
     render("icons/#{path}", options)
   end
 
+  def avatar(user:, size: "size-30")
+    if user.avatar.attached? && user.avatar.variable?
+      image_tag(
+        user.avatar.variant(:thumb),
+        class: "#{size} rounded-full bg-gray-500"
+      )
+    else
+      tag.div(class: "#{size} rounded-full bg-gray-500 flex shrink-0 justify-center items-center")
+    end
+  end
+
   def flash_class(level)
     case level
     when "success" then "bg-green-700"

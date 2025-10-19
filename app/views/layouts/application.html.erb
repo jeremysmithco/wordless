@@ -22,11 +22,14 @@
     <div class="h-screen flex flex-col overflow-hidden">
       <header class="flex-none bg-[#00FF88] px-4 py-2">
         <div class="flex items-center justify-between">
-          <%= icon("logo", size: "size-12") %>
+          <%= link_to [:root] do %>
+            <%= icon("logo", size: "size-12") %>
+          <% end %>
+
           <nav class="flex gap-4">
             <% if user_logged_in? %>
-              <%= button_to [:session], method: :delete, class: "cursor-pointer" do %>
-                <%= icon("x-circle", size: "size-10") %>
+              <%= link_to [:account] do %>
+                <%= avatar(user: Current.user, size: "size-10 border-2 border-white") %>
               <% end %>
             <% end %>
           </nav>

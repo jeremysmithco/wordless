@@ -1,0 +1,15 @@
+<div class="flex flex-col items-center justify-center">
+  <% if Current.user.avatar.attached? %>
+    <%= form_for Current.user, url: avatar_path, builder: TailwindBuilder, data: { controller: "file-upload" } do |f| %>
+      <%= f.file_field :avatar, hidden: true, direct_upload: true, accept: "image/png,image/gif,image/jpeg", data: { file_upload_target: "file" } %>
+
+      <%= content_tag :button, type: :button, data: { action: "file-upload#openFileSelector" } do %>
+        <%= avatar(user: Current.user, size: "size-30") %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+  <%= button_to [:session], method: :delete, class: "cursor-pointer" do %>
+    <%= icon("x-circle", size: "size-36") %>
+  <% end %>
+</div>
