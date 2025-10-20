@@ -5,14 +5,12 @@
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.13",
     "@rails/activestorage": "^8.0.200",
-    "esbuild": "^0.25.5",
-    "esbuild-rails": "^1.0.7",
-    "wavesurfer.js": "^6.6.4"
-  },
-  "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
-    "tailwindcss": "^4.1.7"
+    "esbuild": "^0.25.5",
+    "esbuild-rails": "^1.0.7",
+    "tailwindcss": "^4.1.7",
+    "wavesurfer.js": "^6.6.4"
   },
   "version": "0.1.0",
   "scripts": {
